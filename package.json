@@ -1,7 +1,11 @@
 {
-  "name": "logger",
+  "name": "@arekkusu90/logger",
+  "description": "A logger for styled logs in the browser",
   "private": true,
   "version": "0.0.1",
+  "author": "Alessandro Napoli <arekkusu90@gmail.com>",
+  "homepage": "https://github.com/arekkusu90/logger#readme",
+  "license": "MIT",
   "type": "module",
   "files": [
     "dist"
@@ -44,5 +48,23 @@
     "vitepress": "^1.0.0-alpha.13",
     "vitest": "^0.23.2",
     "vue": "^3.2.39"
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arekkusu90/logger.git"
+  },
+  "keywords": [
+    "js",
+    "ts",
+    "browser",
+    "console",
+    "log"
+  ],
+  "bugs": {
+    "url": "https://github.com/arekkusu90/logger/issues"
   }
 }
