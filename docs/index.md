@@ -5,27 +5,106 @@
 Install the logger as a dependency
 
 ```bash
-$ npm i logger
+$ npm i @arekkusu90/logger
 ```
 
 Import the logger
 
 ```js
-import Logger from "logger";
+import Logger from "@arekkusu90/logger";
 ```
 
 Use the logger
 
 ```js
-import Logger from "logger";
+import Logger from "@arekkusu90/logger";
 
 const logger = new Logger();
-logger.text("Some").text("blue").style("color: blue").text("text").log();
+logger.text("Blue").style("color: blue").space().text("text").log();
 ```
 
-In the console you should see:
+In the console you should see: <br/>
+<span style="color: blue">Blue</span> text
 
-Some <span style="color: blue">blue</span> text
+## Playground
+
+You can have fun with the playground on
+[CodeSandbox](https://codesandbox.io/s/arekkusu90-logger-f5rgpn?file=/src/index.ts)
+
+## Extend the logger
+
+Do you want a method for a particular style that you often use? <br />
+You can do it:
+
+```js
+import Logger from "@arekkusu90/logger";
+
+class MyLogger extends Logger {
+    myStyle() {
+        return this.italic().color("orange-900").borderX(3, "orange-200").px(8);
+    }
+}
+
+const l = new MyLogger();
+l.text("Blue").myStyle().log();
+```
+
+
+If you think the APIs are too verbose, you can extend the logger to add your own shortcuts.<br />
+Here is an example:
+
+```js
+import Logger from "@arekkusu90/logger";
+import type { CssUnitValue, Color } from "@arekkusu90/logger";
+
+class ShortLogger extends Logger {
+    t(text: string) {
+        return this.text(text);
+    }
+
+    c(color: Color) {
+        return this.color(color);
+    }
+
+    b() {
+        return this.bold();
+    }
+
+    i() {
+        return this.italic();
+    }
+
+    bt(width: CssUnitValue, color: Color, type = "solid") {
+        return this.borderTop(width, color, type);
+    }
+    
+    s(count = 1) {
+        return this.space(count)
+    }
+}
+
+const l = new ShortLogger();
+l.t("Blue").c("blue").s().t("text").log();
+```
+
+Or, maybe, you want to add a prefix to all calls.<br />
+Here is another example:
+
+```js
+import Logger from "@arekkusu90/logger";
+
+class PrefixLogger extends Logger {
+    print() {
+        this.text("[My prefix]");
+        this.stack.unishift(this.last);
+        this.stack.pop();
+        return super.print();
+    }
+}
+
+const l = new PrefixLogger();
+l.text("Blue").color("blue").space().text("text").log();
+```
 
 ## API - Base
 
