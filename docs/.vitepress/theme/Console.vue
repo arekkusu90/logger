@@ -80,6 +80,8 @@ export default {
         let code = this.getClearCode(newValue);
         let consoleLoggerClass = this.getConsoleLoggerClass();
         const logger = new consoleLoggerClass();
+        // Needed to keep the unused variable "logger" in the production build
+        this.noop(logger);
         eval(code);
       },
     },
@@ -123,10 +125,13 @@ export default {
       return lines.join(" ");
     },
     onRunInTheBrowser() {
-      let code = this.getClearCode(this.code);
+      const code = this.getClearCode(this.code);
       const logger = new Logger();
+      // Needed to keep the unused variable "logger" in the production build
+      this.noop(logger);
       eval(code);
     },
+    noop(...args){}
   },
 };
 </script>
