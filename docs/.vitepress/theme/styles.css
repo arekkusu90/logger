@@ -1,0 +1,25 @@
+:root {
+    --console-bg-color: #fcfcfc;
+    --console-header-bg: #f1f3f4;
+    --console-tab-color: #000;
+    --console-tab-border: #1a73e8;
+
+    --console-line-font-size: 12px;
+    --console-line-font-family: consolas, lucida console, courier new, monospace;
+    --console-line-color: #000;
+    --console-line-border: rgb(240 240 240);
+    --console-line-warn-bg: hsl(50deg 100% 95%);
+    --console-line-warn-color: hsl(39deg 100% 18%);
+    --console-line-warn-border: hsl(50deg 100% 88%);
+    --console-line-error-bg: hsl(0deg 100% 97%);
+    --console-line-error-color: #f00;
+    --console-line-error-border: hsl(0deg 100% 92%);
+}
+
+html.dark{
+    --console-bg: #1a1a1a;
+    --console-header-bg: #202124;
+    --console-tab-color: #f1f3f4;
+    --console-tab-border: #1a73e8;
+    --console-line-color: #f1f3f4;
+}
